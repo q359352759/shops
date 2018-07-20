@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1，initial-scale=1,maximum-scale=1">
+		<style type="text/css">
+			ul{
+				padding: 0px;
+				margin: 0px;
+			}
+			li{
+				list-style: none;
+			}
+			.list{
+				font-size: 24px;
+			}
+			.page{
+				display: flex;
+				justify-content: center;
+			}
+			.page li{
+				text-align: center;
+				line-height: 20px;
+				width: 20px;
+				height: 20px;
+				margin: 5px;
+				border: 1px solid #000000;
+			}
+			.page li.active{
+				background: #0000EE;
+				color: #FFFFFF;
+			}
+		</style>
+	</head>
+	<body ng-app="myApp" ng-controller="myCtrl">
+		<ul class="list">
+			<li ng-repeat="x in list">{{x.name}}</li>
+		</ul>
+		
+		<ul class="page">
+			<li ng-click="change_page(x)" ng-class="{'active':pageIndex==x}" ng-repeat="x in pageList">{{x}}</li>
+		</ul>
+		
+		<!--<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js" type="text/javascript" charset="utf-8"></script>-->
+		<script src="jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="angular.js"></script>
+		<script type="text/javascript">
+			var app = angular.module('myApp', []);
+			app.controller('myCtrl', function($scope) {
+				$scope.list=[		//假如这是后台返回的数据
+					{'name':1},
+					{'name':2},
+					{'name':3},
+					{'name':4},
+					{'name':5},
+				];
+				$scope.pageIndex=1; //默认第一次为0页
+				$scope.pageList=[1,2,3,4,5];	//装分页的东西
+				
+				$scope.change_page=function(x){		//点击分页
+					$scope.pageIndex=x;
+					$scope.list=[
+						{'name':'1第'+x+'页'},
+						{'name':'2第'+x+'页'},
+						{'name':'3第'+x+'页'},
+						{'name':'4第'+x+'页'},
+						{'name':'5第'+x+'页'},
+					]
+				}
+			});
+			console.log($(window).outerWidth())
+			function zoom_1(){
+				var wactual=1920
+				var ww=$(window).outerWidth();
+				console.log(ww)
+				var num=ww/1920;
+				console.log(num);
+				$('body').css({'zoom':num})
+			}
+			zoom_1();
+			$(window).resize(function(){
+				zoom_1();
+			})
+			
+		</script>
+		
+	</body>
+</html>
