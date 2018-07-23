@@ -64,9 +64,26 @@
 
 <style>
 	
-	#sao{text-align: center;position:fixed;z-index:20;left:1.4rem;top: 20%;width:5rem;height:5rem;background-color:white;}
+	#sao{
+		text-align: center;
+		position:fixed;
+		z-index:20;
+		left:1.4rem;
+		top: 20%;
+		/*width:5rem;*/
+		/*height:5rem;*/
+		background-color:white;
+	}
 	/*#sao header span{position: absolute;left:6%;top:4%;}*/
-	#sao img{width:4.27rem;height:4.27rem;margin-top:0.2rem;}
-	#sao p{font-size:0.3rem;color:#000000;}
+	#sao img{
+		/*width:4.27rem;*/
+		/*height:4.27rem;*/
+		/*margin-top:0.2rem;*/
+		width: 5rem;
+		height: 5rem;
+	}
+	#sao p{
+		border-top: 1px solid #CCCBCB;
+		font-size:0.3rem;color:#000000;}
 	
 </style>

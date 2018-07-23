@@ -113,8 +113,6 @@
 			userName:function(){
 				var name = this.username;
 				this.$router.push({name:"userName",params:{name:name}})	
-				
-				
 			},
 			go:function(){
 				this.$router.go(-1)
@@ -140,6 +138,7 @@
 				var _this = this;
 				localStorage.removeItem('user');
 				localStorage.removeItem('ids');
+				localStorage.removeItem('userinfo');
 				mui.toast("退出成功！",2000);
 				setTimeout(function(){
 					_this.$router.push("/login")

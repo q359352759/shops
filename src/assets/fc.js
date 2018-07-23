@@ -167,6 +167,6 @@ export{
 //localStorage.openid		微信用户的openid
 
 //sessionStorage.href	保存点击的底部
-
+//localStorage.userinfo 用户基本信息
 
 

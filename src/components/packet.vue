@@ -56,7 +56,7 @@
 	      	},
 	      	//提交
 	      	form_1(){
-	      		if(this.memId && this.memId!=''){
+//	      		if(this.memId && this.memId!=''){
 	      			var obj={
 						phone:this.phonenumber,
 						vuecode:this.verify,			//验证码
@@ -67,9 +67,9 @@
 						type:this.type						//0合伙人,1区域代理,2商家4,个人
 					}
 					http("post","/platform/cmembers/registerByActivityNew",obj,this.registerByActivityNew_return);
-	      		}else{
-	      			
-	      		}
+//	      		}else{
+//	      			
+//	      		}
 	      	},
 	      	registerByActivityNew_return(x){
 	      		console.log(x)

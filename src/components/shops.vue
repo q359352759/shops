@@ -11,7 +11,7 @@
 		    </h1>
 		    <!--<a href="" class="mui-pull-right">></a>-->
 		    <!--<a href="" class="mui-icon mui-icon-bars mui-icon-right-nav mui-pull-right"></a>-->
-		    <!--<i @click="erwei(),hidden()"  class="gengduo icon iconfont icon-qr-code mui-pull-right"></i>-->
+		    <i @click="erwei(),hidden()"  class="gengduo icon iconfont icon-qr-code mui-pull-right"></i>
 		</header>
 		<div id="slider" class="mui-slider" >
 			<div class="mui-slider-group mui-slider-loop">
@@ -375,8 +375,8 @@
 		font-size: 0.26rem;
 		letter-spacing: 1px;
 		color: #333333;
-		height:1.22rem;
-		line-height:1.22rem;
+		height:0.8rem;
+		line-height:0.8rem;
 		text-align: center;
 	}
 	#book .mui-segmented-control.mui-scroll-wrapper .mui-control-item{
@@ -536,7 +536,7 @@
 	
 	
 	#book .box_3{
-		padding: 0.1rem 5px 0.1rem;
+		padding: 0.1rem 5px 0px 5px;
 		position: relative;
 	}
 	#book .box_3>div{

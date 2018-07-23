@@ -177,12 +177,6 @@
 				yuer:""//余额
 			}
 		},
-		mounted:function(){
-				var a=this.$route.path;
-				this.nowpath=a.substring(7)
-				var img = localStorage.getItem("img")
-//				this.url = img
-		},
 		methods:{
 			tobusiness:function(){
 				var _this = this
@@ -221,6 +215,14 @@
 				console.log('没有登陆')
 				this.$router.push('/login');
 			}
+			if(localStorage.userinfo && localStorage.userinfo!='' && localStorage.userinfo!='undefined'){
+				var userinfo=JSON.parse(localStorage.userinfo);
+				console.log('用户基本信息',userinfo)
+				this.url = userinfo.data.myQrcodeImg
+				this.img = userinfo.data.photo
+				this.username = userinfo.data.nick
+			}
+			
 		},
 		created:function(){
 			
@@ -287,27 +289,17 @@
 			
 			var data = {
 					uId:id
+			}
+			http('post','/platform/cmembers/userInfo',{uId:id},function(res){
+				console.log('返回用户的基本信息',res)
+				
+				if(res.success){
+					localStorage.userinfo=JSON.stringify(res)
+					_this.url = res.data.myQrcodeImg
+					_this.img = res.data.photo
+					_this.username = res.data.nick
 				}
-			var _this = this
-			$.ajax({
-				type:"post",
-				url:liupeilin_ip+"/platform/cmembers/userInfo",
-				async:true,
-				data:data,
-				success:function(res){
-					console.log('返回用户的基本信息',res)
-					if(res.success){
-						_this.url = res.data.myQrcodeImg
-						_this.img = res.data.photo
-						_this.username = res.data.nick	
-					}
-				},
-				error:function(res){
-					console.log("失败",1000);	
-				}
-			});
-			
-			
+			})
 		}
 	}
 </script>
